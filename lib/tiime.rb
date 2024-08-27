@@ -21,6 +21,7 @@ module Tiime
 
   class << self
     attr_accessor :default_company_id
+    attr_accessor :bearer
 
     attr_writer :cache_strategy
     def cache_strategy
