@@ -10,8 +10,8 @@ module Tiime
       faraday.adapter(:net_http)
       faraday.options.timeout       = 10
       faraday.headers['User-Agent'] = "Flexirest/#{Flexirest::VERSION}"
-      faraday.headers['Connection'] = "Keep-Alive"
-      faraday.headers['Accept']     = "application/json"
+      faraday.headers['Connection'] = 'Keep-Alive'
+      faraday.headers['Accept']     = 'application/json'
       faraday.request :gzip
     end
 

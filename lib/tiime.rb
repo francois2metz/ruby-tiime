@@ -20,10 +20,10 @@ module Tiime
   class Error < StandardError; end
 
   class << self
-    attr_accessor :default_company_id
-    attr_accessor :bearer
+    attr_accessor :default_company_id, :bearer
 
     attr_writer :cache_strategy
+
     def cache_strategy
       @cache_strategy ||= :lazy_cache
     end

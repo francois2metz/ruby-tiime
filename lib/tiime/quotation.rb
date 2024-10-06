@@ -9,7 +9,7 @@ module Tiime
     get :pdf, '/companies/#company_id/quotations/:id/pdf', plain: true
 
     before_request :cache_refresh
-    def cache_refresh(name, request)
+    def cache_refresh(_name, request)
       BaseModel.invalidate_cache_for(self, request) if Tiime.cache_strategy == :force_refresh
       nil
     end

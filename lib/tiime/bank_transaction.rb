@@ -26,7 +26,7 @@ module Tiime
     end
 
     before_request :cache_refresh
-    def cache_refresh(name, request)
+    def cache_refresh(_name, request)
       BaseModel.invalidate_cache_for(self, request) if Tiime.cache_strategy == :force_refresh
       nil
     end
@@ -38,7 +38,7 @@ module Tiime
 
       receipt_documents.inject(0.0) do |memo, receipt|
         receipt.metadata.find { |m| m.key == 'vat_amount' }.value.items.find { |i| i.key == 'total' }.value.value
-        receipt_vat_amount = receipt.metadata.find { |m| m.key == 'vat_amount' }&.value&.items.find { |i| i.key == 'total' }&.value&.value
+        receipt_vat_amount = receipt.metadata.find { |m| m.key == 'vat_amount' }&.value&.items&.find { |i| i.key == 'total' }&.value&.value
         receipt_vat_amount ||= 0
         memo + receipt_vat_amount
       end
